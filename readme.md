@@ -1,3 +1,6 @@
 # Pokedex
 ## About
-Esta página sirve como un ejercicio para la quinta semana del curso de FrontEnd para LaunchX.
+This activity was made as part of the LaunchX frontend course.
+
+## Live Demo
+A demo of this project is available [here](https://pokedex-betocpu.netlify.app).
