@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <script src="./js/index.js"></script>
+
+    <title>Pokedex</title>
+</head>
+<body class="body-container">
+    <h1 class="title">Pokedex</h1>
+    <main class="main-container">
+        <div class="left-part-container">
+            <div class="main-view-container">
+                <div class="leds-container">
+                    <div class="blue-led"></div>
+                    <div class="mini-leds-container"> 
+                        <div class="red-led"></div>
+                        <div class="yellow-led"></div>
+                        <div class="yellow-led"></div>
+                    </div>
+
+                </div>
+                <div class="screen-buttons-container">
+                    <div class="main-screen-container">
+                        <div class="pokemon-image-container">
+                            <img id="pokemon-image" class="pokemon-image" src="../assets/img/pokeball.png"/>
+                            <span id="pokemon-number">#</span>
+                        </div>
+                    </div>
+                    <div class="main-buttons-container">
+                        <div class="search-container">
+                                <div class="input-container">
+                                    <button onclick="fetchPokemon()" class="search-button"></button>
+                                    <div class="flat-led-red"></div>
+                                    <div class="flat-led-blue"></div>
+                                </div>
+                                <div class="pokemon-name-container">
+                                    <input type="text" name="pokemon-name" id="pokemon-name" placeholder="Pokemon Name">
+                                </div>
+                        </div>
+                        <div class="d-pad-container">
+                            <img class="d-pad" src="/assets/img/d-pad.png" alt="d-pad">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="middle-tube-container">
+                <img class="middle-tube" src="../assets/img/tube.png" alt="">
+                <img class="middle-tube" src="../assets/img/tube.png" alt="">
+            </div>
+        </div>
+        <div class="right-part-container">
+            <div class="second-screen-container">
+                <div class="type-main-container">
+                    <div class="type-container">
+                        <p class="type-label">TYPE :</p>
+                        <div id="type-display-container" class="multiple-types-container">
+                        </div>
+                    </div>
+                    <!-- <div class="type-container">
+                        <p class="type-label">WEAKNESS :</p>
+                        <div id="weakness-display-container" class="multiple-types-container">
+                            <span class="type-display-container electric">ELECTRIC</span>
+                            <span class="type-display-container electric">ELECTRIC</span>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="stats-main-container">
+                    <div class="stat-container">
+                        <div class="stat-wrap">
+                            <div class="stat-bars-container">
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                            </div>
+                            <div class="stat-level" id="PS"></div>
+                        </div>
+                        <p class="stat-label">PS</p>
+                    </div>
+                    <div class="stat-container">
+                        <div class="stat-wrap">
+                            <div class="stat-bars-container">
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                            </div>
+                            <div class="stat-level" id="ATK"></div>
+                        </div>
+                        <p class="stat-label">ATK</p>
+                    </div>
+                    <div class="stat-container">
+                        <div class="stat-wrap">
+                            <div class="stat-bars-container">
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                            </div>
+                            <div class="stat-level" id="DEF"></div>
+                        </div>
+                        <p class="stat-label">DEF</p>
+                    </div>
+                    <div class="stat-container">
+                        <div class="stat-wrap">
+                            <div class="stat-bars-container">
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                            </div>
+                            <div class="stat-level" id="SPATK"></div>
+                        </div>
+                        <p class="stat-label">SP.<br/>ATK</p>
+                    </div>
+                    <div class="stat-container">
+                        <div class="stat-wrap">
+                            <div class="stat-bars-container">
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                            </div>
+                            <div class="stat-level" id="SPDEF"></div>
+                        </div>
+                        <p class="stat-label">SP.<br/>DEF</p>
+                    </div>
+                    <div class="stat-container">
+                        <div class="stat-wrap">
+                            <div class="stat-bars-container">
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                                <div class="stat-bar"></div>
+                            </div>
+                            <div class="stat-level" id="SPEED"></div>
+                        </div>
+                        <p class="stat-label">SPEED</p>
+                    </div>
+                </div>
+            
+                
+            
+            </div>
+
+            <div class="physical-characteristics-container">
+                <div class="second-screen-container">
+                    <span id="height" class="stat-label">Height: </span>
+                </div>
+                <div  class="second-screen-container">
+                    <span id="weight" class="stat-label">Weight: </span>
+
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
